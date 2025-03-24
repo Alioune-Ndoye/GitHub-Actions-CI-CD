@@ -23,15 +23,15 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm install
-
-      - name: Install Cypress
-        run: npx cypress install 
-        cache: cypress binary
+        run: npm install            
+      - name: cache cypress binary
         uses: action/cache@v3
         with: 
         path: ~/.cache/Cypress
         key: ${{ runner.os }}-cypress-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Cypress
+        run: npx cypress install 
 
       - name: Run Cypress component tests
         run: npm run test:component
