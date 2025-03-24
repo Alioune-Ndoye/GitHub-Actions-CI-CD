@@ -26,7 +26,12 @@ jobs:
         run: npm install
 
       - name: Install Cypress
-        run: npm install cypress --save-dev
+        run: npx cypress install 
+        cache: cypress binary
+        uses: action/cache@v3
+        with: 
+        path: ~/.cache/Cypress
+        key: ${{ runner.os }}-cypress-${{ hashFiles('package-lock.json') }}
 
       - name: Run Cypress component tests
         run: npm run test:component
@@ -35,7 +40,7 @@ jobs:
     name: Deploy Application
     runs-on: ubuntu-latest
     needs: cypress-tests
-    if: github.ref == 'refs/heads/main'
+    if: github.event_name == 'push && github.ref == refs/heads/main'
     
     steps:
       - name: Checkout repository
