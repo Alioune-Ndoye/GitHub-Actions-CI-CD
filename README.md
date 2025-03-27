@@ -3,6 +3,9 @@
 ## Live Deployment
 [View Application](https://github-actions-ci-cd-fs65.onrender.com)
 
+## GitHub Gist:
+<script src="https://gist.github.com/Alioune-Ndoye/a0f2d9961cae72365aa702cb834fce6e.js"></script>
+
 ## Overview
 This repository integrates a **Continuous Integration (CI) and Continuous Deployment (CD) pipeline** using **GitHub Actions** to ensure code quality and automated deployments. The pipeline is designed for a **TypeScript-based full-stack application** and leverages **Cypress** for testing and **Render** for deployment.
 
